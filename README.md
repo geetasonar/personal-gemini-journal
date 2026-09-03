@@ -50,7 +50,7 @@ service cloud.firestore {
 
 ---
 
-## 3. Deployment & Google Cloud Run Setup Guide (Project: exalted-legacy-507016-a2)
+## 3. Deployment & Google Cloud Run Setup Guide
 
 Follow these steps to deploy Personal-Gemini-Journal to **Google Cloud Run** in project `exalted-legacy-507016-a2` using **Secret Manager** and **Cloud Firestore**:
 
