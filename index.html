@@ -1,7 +1,22 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="indigo" class="dark">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      // Apply theme immediately to eliminate initial render flash
+      (function () {
+        try {
+          var saved = localStorage.getItem('personal_gemini_journal_theme');
+          var theme = saved || 'indigo';
+          document.documentElement.setAttribute('data-theme', theme);
+          if (theme === 'obsidian' || theme === 'indigo') {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
     <script>
       // Global sandbox compatibility: ensure window.fetch has both getter and setter
       (function () {
@@ -25,16 +40,16 @@
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Personal-Gemini-Journal - Authenticated Gemini Reflection Studio</title>
-    <meta name="description" content="Personal Gemini Journal - User-authenticated AI reflection and journaling studio powered by Firebase Auth, Cloud Firestore, and Gemini 3.6 Flash on Google Cloud." />
+    <meta name="description" content="Personal Gemini Journal - Aesthetic AI reflection and journaling studio with custom atmospheric themes, authenticated Cloud Firestore vault, and Gemini 3.8 Flash introspective partnership." />
     <meta property="og:title" content="Personal-Gemini-Journal - Authenticated Gemini Reflection Studio" />
-    <meta property="og:description" content="Personal Gemini Journal - User-authenticated AI reflection and journaling studio powered by Firebase Auth, Cloud Firestore, and Gemini 3.6 Flash on Google Cloud." />
+    <meta property="og:description" content="Personal Gemini Journal - Aesthetic AI reflection and journaling studio with custom atmospheric themes, authenticated Cloud Firestore vault, and Gemini 3.8 Flash introspective partnership." />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   </head>
-  <body class="antialiased font-sans transition-colors duration-200" style="background-color: var(--bg-canvas); color: var(--text-primary);">
+  <body class="antialiased font-sans transition-colors duration-200 selection:bg-amber-200 selection:text-stone-900" style="background-color: var(--bg-canvas); color: var(--text-primary);">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

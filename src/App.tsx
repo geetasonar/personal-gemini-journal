@@ -163,7 +163,7 @@ export default function App() {
 
   return (
     <div
-      className="min-h-screen flex flex-col transition-colors duration-200"
+      className="min-h-screen flex flex-col transition-colors duration-300 bg-journal-pattern"
       style={{
         backgroundColor: 'var(--bg-canvas)',
         color: 'var(--text-primary)',
@@ -207,37 +207,37 @@ export default function App() {
             />
           ) : (
             <div
-              className="flex-1 flex flex-col items-center justify-center p-8 text-center space-y-4"
+              className="flex-1 flex flex-col items-center justify-center p-8 text-center space-y-5"
               style={{
                 backgroundColor: 'var(--bg-canvas)',
               }}
             >
               <div
-                className="w-14 h-14 rounded-2xl border flex items-center justify-center shadow-2xs"
+                className="w-16 h-16 rounded-2xl border flex items-center justify-center shadow-sm transition-transform duration-300 hover:scale-105"
                 style={{
                   backgroundColor: 'var(--bg-surface)',
                   borderColor: 'var(--border-subtle)',
                 }}
               >
-                <span className="text-xl">✍️</span>
+                <span className="text-2xl">✍️</span>
               </div>
-              <div className="space-y-1">
-                <h2 className="font-bold text-xl font-serif" style={{ color: 'var(--text-primary)' }}>
-                  Your Private Vault is Ready
+              <div className="space-y-1.5">
+                <h2 className="font-bold text-2xl font-serif tracking-tight" style={{ color: 'var(--text-primary)' }}>
+                  Your Private Sanctuary Awaits
                 </h2>
-                <p className="text-xs max-w-sm opacity-75" style={{ color: 'var(--text-secondary)' }}>
-                  Start your first journal reflection to engage with Gemini 3.6 Flash.
+                <p className="text-xs sm:text-sm max-w-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                  Begin a new reflection session to explore your thoughts and gain clarity with Gemini.
                 </p>
               </div>
               <button
                 id="main-start-reflection-btn"
                 onClick={handleCreateNewEntry}
-                className="px-4 py-2 rounded-lg font-medium text-xs text-white transition shadow-2xs hover:opacity-90"
+                className="px-5 py-2.5 rounded-xl font-medium text-xs sm:text-sm text-white transition shadow-sm hover:opacity-95 hover:shadow-md cursor-pointer"
                 style={{
                   backgroundColor: 'var(--accent-primary)',
                 }}
               >
-                Create New Reflection
+                Start New Reflection
               </button>
             </div>
           )}

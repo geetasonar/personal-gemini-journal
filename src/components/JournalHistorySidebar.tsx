@@ -239,18 +239,19 @@ export function JournalHistorySidebar({
                     onSelectEntry(entry);
                     onClose();
                   }}
-                  className="group relative p-3.5 rounded-2xl text-left cursor-pointer transition border shadow-2xs hover:opacity-95"
+                  className={`group relative p-3.5 rounded-xl text-left cursor-pointer transition-all duration-200 border shadow-2xs ${
+                    isSelected ? 'shadow-sm -translate-y-0.5' : 'hover:-translate-y-0.5 hover:shadow-xs'
+                  }`}
                   style={{
                     backgroundColor: isSelected ? 'var(--bg-surface-elevated)' : 'var(--bg-surface)',
                     borderColor: isSelected ? 'var(--accent-primary)' : 'var(--border-subtle)',
-                    borderWidth: isSelected ? '1.5px' : '1px',
                   }}
                 >
-                  <div className="flex items-start justify-between gap-2 mb-1">
-                    <h3 className="text-xs font-bold line-clamp-1 font-serif transition" style={{ color: 'var(--text-primary)' }}>
+                  <div className="flex items-start justify-between gap-2 mb-1.5">
+                    <h3 className={`text-xs line-clamp-1 font-serif transition ${isSelected ? 'font-bold' : 'font-semibold'}`} style={{ color: 'var(--text-primary)' }}>
                       {entry.title || 'Untitled Reflection'}
                     </h3>
-                    <div className="flex items-center gap-1 shrink-0">
+                    <div className="flex items-center gap-1.5 shrink-0">
                       {moodObj && (
                         <span className="text-xs" title={`Mood: ${moodObj.label}`}>
                           {moodObj.emoji}
@@ -259,7 +260,7 @@ export function JournalHistorySidebar({
                       <button
                         onClick={(e) => handleDelete(e, entry.id)}
                         disabled={deletingId === entry.id}
-                        className={`p-1 rounded-md transition ${
+                        className={`p-1 rounded-md transition cursor-pointer ${
                           confirmDeleteId === entry.id
                             ? 'bg-red-500/20 text-red-500 opacity-100'
                             : 'opacity-0 group-hover:opacity-100 text-stone-400 hover:text-red-500'

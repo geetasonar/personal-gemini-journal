@@ -73,21 +73,21 @@ export function LandingPage({ onOpenSecurityModal }: LandingPageProps) {
             }}
           >
             <Sparkles className="w-3.5 h-3.5 text-current" />
-            <span>Powered by Gemini 3.6 Flash & Firebase Firestore</span>
+            <span>Powered by Gemini 3.8 Flash & Cloud Firestore</span>
           </div>
 
           <h1
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.15] font-serif"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.12] font-serif"
             style={{ color: 'var(--text-primary)' }}
           >
-            A private sanctuary for <span style={{ color: 'var(--accent-text)' }}>deep reflection</span> and mental clarity.
+            A private sanctuary for <span className="italic" style={{ color: 'var(--accent-text)' }}>deep reflection</span> and clarity.
           </h1>
 
           <p
-            className="text-base sm:text-lg leading-relaxed max-w-2xl"
+            className="text-base sm:text-lg leading-relaxed max-w-2xl font-editorial"
             style={{ color: 'var(--text-secondary)' }}
           >
-            Personal Gemini Journal pairs your stream of consciousness with Google's Gemini 3.6 Flash model. Converse across multi-turn sessions, uncover introspective insights, and synthesize reflections into key takeaways—all securely isolated in your private Cloud Firestore vault.
+            Personal Gemini Journal pairs your stream of consciousness with Google's Gemini 3.8 Flash model. Converse across multi-turn sessions, uncover introspective insights, and synthesize reflections into actionable takeaways—all securely isolated in your private Cloud Firestore vault.
           </p>
 
           {/* Auth Action Box */}
@@ -290,9 +290,9 @@ export function LandingPage({ onOpenSecurityModal }: LandingPageProps) {
                   <Brain className="w-4 h-4 text-amber-500" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>Gemini 3.6 Flash & Fallback Ladder</h3>
+                  <h3 className="text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>Gemini 3.8 Flash & Fallback Resilience</h3>
                   <p className="text-xs leading-relaxed opacity-75" style={{ color: 'var(--text-secondary)' }}>
-                    Multi-turn conversational reflections with automated fallback resilience (3.6 Flash → 3.1 Flash-Lite → 3.7 Flash).
+                    Multi-turn conversational reflections with automated fallback resilience (3.8 Flash → 3.1 Flash-Lite → Pro).
                   </p>
                 </div>
               </div>

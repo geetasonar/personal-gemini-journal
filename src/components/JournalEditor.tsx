@@ -629,15 +629,15 @@ export function JournalEditor({
 
                   {/* Message Bubble Container */}
                   <div className={`space-y-1 max-w-[85%] sm:max-w-[78%] ${isUser ? 'items-end' : 'items-start'}`}>
-                    <div className="flex items-center gap-2 px-1 text-[10px] opacity-65" style={{ color: 'var(--text-secondary)' }}>
+                    <div className="flex items-center gap-2 px-1 text-[10px] opacity-75" style={{ color: 'var(--text-secondary)' }}>
                       <span className="font-semibold" style={{ color: 'var(--text-primary)' }}>
-                        {isUser ? 'You' : 'ReflectAI (Gemini 3.6 Flash)'}
+                        {isUser ? 'You' : 'ReflectAI (Gemini 3.8 Flash)'}
                       </span>
                       <span>•</span>
                       <span>{new Date(message.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
                       {message.modelUsed && (
                         <span
-                          className="font-mono px-1 rounded text-[9px] border"
+                          className="font-mono px-1.5 py-0.5 rounded-full text-[9px] border shadow-2xs"
                           style={{
                             backgroundColor: 'var(--bg-surface-subtle)',
                             borderColor: 'var(--border-subtle)',
@@ -650,10 +650,10 @@ export function JournalEditor({
                     </div>
 
                     <div
-                      className={`p-4 rounded-2xl text-xs sm:text-sm leading-relaxed shadow-2xs ${
+                      className={`p-4 sm:p-5 rounded-2xl text-xs sm:text-sm leading-relaxed shadow-xs transition-shadow duration-200 ${
                         isUser
                           ? 'rounded-tr-none text-white'
-                          : 'border rounded-tl-none markdown-container'
+                          : 'border rounded-tl-none markdown-container font-editorial'
                       }`}
                       style={{
                         backgroundColor: isUser ? 'var(--accent-primary)' : 'var(--bg-surface)',
@@ -662,7 +662,7 @@ export function JournalEditor({
                       }}
                     >
                       {isUser ? (
-                        <p className="whitespace-pre-wrap">{message.content}</p>
+                        <p className="whitespace-pre-wrap font-sans leading-relaxed">{message.content}</p>
                       ) : (
                         <div className="markdown-body">
                           <Markdown>{message.content}</Markdown>

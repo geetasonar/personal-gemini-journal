@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-export type AppThemeId = 'parchment' | 'obsidian' | 'sage' | 'indigo';
+export type AppThemeId = 'parchment' | 'obsidian' | 'sage' | 'indigo' | 'rose';
 
 export interface ThemeOption {
   id: AppThemeId;
@@ -15,39 +15,48 @@ export interface ThemeOption {
 export const THEME_OPTIONS: ThemeOption[] = [
   {
     id: 'parchment',
-    name: 'Editorial Parchment',
-    description: 'Warm ivory paper, rich espresso ink, and sepia accents',
+    name: 'Editorial Linen & Amber',
+    description: 'Warm ivory paper, rich espresso ink, and artisanal honey amber',
     icon: '📜',
-    previewBg: '#F8F6F0',
-    previewAccent: '#8B5A2B',
+    previewBg: '#FAF7F2',
+    previewAccent: '#A35C27',
     isDark: false,
   },
   {
     id: 'obsidian',
-    name: 'Obsidian Velvet',
-    description: 'Deep midnight charcoal with warm amber and platinum highlights',
+    name: 'Velvet Obsidian',
+    description: 'Deep midnight charcoal with warm astral amber starlight',
     icon: '✨',
-    previewBg: '#0F1117',
+    previewBg: '#0B0D13',
     previewAccent: '#F59E0B',
     isDark: true,
   },
   {
     id: 'sage',
-    name: 'Nordic Sage',
-    description: 'Calming mist green, deep pine, and eucalyptus tones',
+    name: 'Kyoto Forest & Pine',
+    description: 'Tranquil matcha mist, soothing cypress, and cedar tones',
     icon: '🌿',
-    previewBg: '#F2F6F4',
-    previewAccent: '#2D6A4F',
+    previewBg: '#F2F6F3',
+    previewAccent: '#246648',
     isDark: false,
   },
   {
     id: 'indigo',
-    name: 'Twilight Slate',
-    description: 'Deep celestial slate, soft violet, and luminous starlight cyan',
+    name: 'Celestial Twilight',
+    description: 'Deep cosmic sapphire, astral silver, and starlight cyan',
     icon: '🌌',
-    previewBg: '#0F172A',
-    previewAccent: '#38BDF8',
+    previewBg: '#090D18',
+    previewAccent: '#0EA5E9',
     isDark: true,
+  },
+  {
+    id: 'rose',
+    name: 'Cashmere Rose & Plum',
+    description: 'Soft porcelain blush, dusky vintage plum, and rose terracotta',
+    icon: '🌸',
+    previewBg: '#FAF4F4',
+    previewAccent: '#B75369',
+    isDark: false,
   },
 ];
 
@@ -70,7 +79,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         return saved;
       }
     }
-    return 'parchment';
+    return 'indigo';
   });
 
   const setTheme = (newTheme: AppThemeId) => {
@@ -95,7 +104,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     }
   }, [theme]);
 
-  const currentThemeConfig = THEME_OPTIONS.find((t) => t.id === theme) || THEME_OPTIONS[0];
+  const currentThemeConfig = THEME_OPTIONS.find((t) => t.id === theme) || THEME_OPTIONS.find((t) => t.id === 'indigo') || THEME_OPTIONS[0];
 
   return (
     <ThemeContext.Provider

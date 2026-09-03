@@ -1,0 +1,102 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile representation for authenticated users",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "Firebase Auth user identifier"
+        },
+        "email": {
+          "type": "string",
+          "description": "User email address"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "User display name"
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "User profile avatar photo URL"
+        },
+        "isAnonymous": {
+          "type": "boolean",
+          "description": "Whether the user logged in anonymously as a guest"
+        }
+      },
+      "required": ["uid"]
+    },
+    "JournalEntry": {
+      "title": "JournalEntry",
+      "description": "Individual reflective journal entry document",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique entry identifier"
+        },
+        "userId": {
+          "type": "string",
+          "description": "Owner user UID"
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the journal entry",
+          "maxLength": 200
+        },
+        "mood": {
+          "type": "string",
+          "description": "Current mood state",
+          "maxLength": 50
+        },
+        "mode": {
+          "type": "string",
+          "description": "Reflection mode style",
+          "enum": ["reflective", "socratic", "brainstorm", "action", "gratitude"]
+        },
+        "messages": {
+          "type": "array",
+          "description": "List of conversational dialogue messages in the session"
+        },
+        "summary": {
+          "type": "string",
+          "description": "Synthesized AI summary",
+          "maxLength": 2000
+        },
+        "takeaways": {
+          "type": "array",
+          "description": "Key takeaways extracted from the reflection"
+        },
+        "actionItems": {
+          "type": "array",
+          "description": "Actionable micro-steps identified"
+        },
+        "tags": {
+          "type": "array",
+          "description": "Tags assigned to this journal entry"
+        },
+        "createdAt": {
+          "type": "number",
+          "description": "Creation unix timestamp"
+        },
+        "updatedAt": {
+          "type": "number",
+          "description": "Last updated unix timestamp"
+        }
+      },
+      "required": ["id", "userId", "title", "createdAt", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Isolated profile document for a user"
+    },
+    "/users/{userId}/entries/{entryId}": {
+      "schema": "JournalEntry",
+      "description": "User's private reflective journal entries"
+    }
+  }
+}
